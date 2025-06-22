@@ -71,7 +71,7 @@ html, body {
 .wrapper {
 	display: grid;
 	height: 100%;
-	grid-template-columns: 75px 230px  minmax(500px, 1fr);
+	grid-template-columns: 100px 230px  minmax(500px, 1fr);
 	grid-template-rows: 30px minmax(500px, 1fr) 160px;
 	grid-template-areas:
 			"header header header"
@@ -150,4 +150,22 @@ html, body {
 
 .dropdown-item:hover {
 		background-color: rgba(0, 0, 0, 0.144);
+}
+
+#freehandToolContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10px;
+  gap: 10px;
+}
+
+#freehandIcon {
+  width: 40px;
+  height: 40px;
+}
+
+#freehandSlider {
+  transform: rotate(270deg);
+  width: 100px;
 }

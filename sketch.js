@@ -5,32 +5,8 @@ var colourP = null;
 var helpers = null;
 var canvas = null;
 let slider;
-
-//spray can object literal
-sprayCan = {
-  name: "sprayCanTool",
-  icon: "assets/sprayCan.jpg",
-  points: 13,
-  spread: 10,
-  draw: function () {
-    if (!mouseOnCanvas(canvas)) {
-      return;
-    }
-
-    //if the mouse is pressed paint on the canvas
-    //spread describes how far to spread the paint from the mouse pointer
-    //points holds how many pixels of paint for each mouse press.
-    if (mouseIsPressed) {
-      for (var i = 0; i < this.points; i++) {
-        point(
-          random(mouseX - this.spread, mouseX + this.spread),
-          random(mouseY - this.spread, mouseY + this.spread)
-        );
-      }
-    }
-  },
-};
-
+let overlay;
+let freehandTool;
 let undoManager;
 function setup() {
   //create a canvas to fill the content div from index.html
@@ -43,6 +19,9 @@ function setup() {
   canvas = c;
   background(255);
 
+  // Create overlay for mirror tool to ensure red line don't persist
+  overlay = createGraphics(width, height);
+
   //create helper functions and the colour palette
   helpers = new HelperFunctions();
   colourP = new ColourPalette();
@@ -51,12 +30,18 @@ function setup() {
   toolbox = new Toolbox();
 
   //add the tools to the toolbox.
-  toolbox.addTool(new FreehandTool());
+  // toolbox.addTool(new FreehandTool());
+  // freehandTool.setupUI();
+  freehandTool = new FreehandTool();
+  toolbox.addTool(freehandTool);
+
+  freehandTool.setupUI();
   toolbox.addTool(new LineToTool());
-  toolbox.addTool(sprayCan);
+  toolbox.addTool(new SprayCan());
   toolbox.addTool(new mirrorDrawTool());
   toolbox.addTool(new FixedShapes());
   undoManager = new UndoManager();
+  clear();
   // Save the initial blank state
   undoManager.saveState();
   select("#undoButton").mouseClicked(() => {
@@ -78,6 +63,12 @@ function draw() {
     alert("it doesn't look like your tool has a draw method!");
   }
 
+  if (toolbox.selectedTool.name !== "mirrorDraw") {
+    overlay.clear();
+  } else {
+    image(overlay, 0, 0); // Only show overlay when in mirrorDraw
+  }
+  
 	if (undoManager?.needsSnapshot) {
     undoManager.saveState();
   }
@@ -91,12 +82,6 @@ function mousePressed() {
   }
 }
 
-// function mouseReleased() {
-//   console.log("mouseReleased detected");
-//   if (toolbox.selectedTool.hasOwnProperty("mouseReleased")) {
-//     toolbox.selectedTool.mouseReleased();
-//   }
-// }
 function mouseReleased() {
   console.log("mouseReleased detected");
 
