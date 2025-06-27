@@ -7,8 +7,6 @@ class FixedShapes {
     this.startMouseX = -1;
     this.startMouseY = -1;
     this.drawing = false;
-    // this.outerRad = dist(mouseX, mouseY, this, p);
-    // this.innerRad = this.outerRad / 2;
   }
 
   setShape(shapeName) {
@@ -117,11 +115,11 @@ class FixedShapes {
   }
 
   mouseReleased() {
-      if (!mouseOnCanvas(canvas)) return; // Ensure we're on canvas
+    if (!mouseOnCanvas(canvas)) return; // Ensure we're on canvas
 
-        if (typeof undoManager !== "undefined") {
-          console.log("🕒 Marking snapshot for next frame");
-          undoManager.markForSnapshot();
-        }
+    if (typeof undoManager !== "undefined") {
+      console.log("🕒 Marking snapshot for next frame");
+      undoManager.markForSnapshot();
     }
+  }
 }

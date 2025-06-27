@@ -81,21 +81,20 @@ function mirrorDrawTool() {
     // }
     // //return to the original stroke
     // pop();
-	if(toolbox.selectedTool.name === "mirrorDraw"){
-		overlay.clear(); // Clear previous overlay
-		overlay.push();
-		overlay.strokeWeight(3);
-		overlay.stroke("red");
+    if (toolbox.selectedTool.name === "mirrorDraw") {
+      overlay.clear(); // Clear previous overlay
+      overlay.push();
+      overlay.strokeWeight(3);
+      overlay.stroke("red");
 
-		if (this.axis == "x") {
-		overlay.line(width / 2, 0, width / 2, height);
-		} else {
-		overlay.line(0, height / 2, width, height / 2);
-		}
+      if (this.axis == "x") {
+        overlay.line(width / 2, 0, width / 2, height);
+      } else {
+        overlay.line(0, height / 2, width, height / 2);
+      }
 
-		overlay.pop();
-	}
-    
+      overlay.pop();
+    }
   };
 
   /*calculate an opposite coordinate the other side of the
@@ -130,7 +129,7 @@ function mirrorDrawTool() {
   this.unselectTool = function () {
     updatePixels();
     //clear options
-	overlay.clear();
+    overlay.clear();
     select(".options").html("");
   };
 

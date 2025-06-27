@@ -1,10 +1,14 @@
+/**
+ * Manages undo states by storing canvas snapshots.
+ * @param {number} limit - Maximunm number of snapshots to retain in the undo stack
+ */
 class UndoManager {
   constructor(limit = 50) {
     this.stack = [];
     this.limit = limit;
   }
 
-   markForSnapshot() {
+  markForSnapshot() {
     this.needsSnapshot = true;
   }
 
@@ -17,7 +21,7 @@ class UndoManager {
     if (this.stack.length > this.limit) {
       this.stack.shift();
     }
-	this.needsSnapshot = false;
+    this.needsSnapshot = false;
     console.log(`State saved. Stack size: ${this.stack.length}`);
   }
 

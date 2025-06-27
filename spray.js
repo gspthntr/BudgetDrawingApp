@@ -24,7 +24,7 @@ class SprayCan {
     }
   }
 
-	mouseReleased() {
+  mouseReleased() {
     if (!mouseOnCanvas(canvas)) return; // Ensure we're on canvas
 
     if (typeof undoManager !== "undefined") {
@@ -32,5 +32,4 @@ class SprayCan {
       undoManager.markForSnapshot();
     }
   }
-	
 }

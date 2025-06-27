@@ -51,8 +51,6 @@ function setup() {
   });
   console.log(canvas.size()); // p5.js size (in canvas pixels)
   console.log(canvas.elt.getBoundingClientRect()); // true screen size + offset
-  // slider = createSlider(0, 360, 3699).position(100, 100);
-  // createButton();
 }
 
 // let firstFrameCaptured = false;
@@ -68,8 +66,8 @@ function draw() {
   } else {
     image(overlay, 0, 0); // Only show overlay when in mirrorDraw
   }
-  
-	if (undoManager?.needsSnapshot) {
+
+  if (undoManager?.needsSnapshot) {
     undoManager.saveState();
   }
 }

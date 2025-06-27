@@ -1,84 +1,80 @@
-html, body {
+html,
+body {
   margin: 0px;
   height: 100%;
 }
 
 #sidebar {
-	grid-area: sidebar;
-	overflow-y: scroll;
+  grid-area: sidebar;
+  overflow-y: scroll;
 }
 
 #content {
-	grid-area: content;
-	border: 3px solid black;
+  grid-area: content;
+  border: 3px solid black;
 }
 
 .header {
-	grid-area: header;
-	font-family: Helvetica, sans-serif
+  grid-area: header;
+  font-family: Helvetica, sans-serif;
 }
 
-.footer{
+.footer {
   grid-area: footer;
 }
 
-.sideBarItem{
-	max-height: 2.5rem;
-	max-width: 2.5rem;
-	padding:5px;
+.sideBarItem {
+  max-height: 2.5rem;
+  max-width: 2.5rem;
+  padding: 5px;
 }
 
-.sideBarItem img{
-	max-height: 2.5rem;
-	max-width: 2.5rem;
+.sideBarItem img {
+  max-height: 2.5rem;
+  max-width: 2.5rem;
 }
 
-.colourPalette{
-	grid-area: colourP;
-	display:flex;
-	flex-direction:grid;
-	flex-flow: wrap;
+.colourPalette {
+  grid-area: colourP;
+  display: flex;
+  flex-direction: grid;
+  flex-flow: wrap;
 }
 
-.options{
-	grid-area: options;
-	padding: 15px;
+.options {
+  grid-area: options;
+  padding: 15px;
 }
 
-.colourSwatches{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-family: Helvetica, sans-serif;
-	font-size: 0.9rem;
-	color: white;
-	text-shadow:
-    0 0 5px red,
-    0 0 10px red,
-    0 0 20px darkred,
-    0 0 30px darkred,
-	0 0 40px black;
-	/* text-shadow: ; */
-	box-sizing: border-box;
-	width: 50px;
-	height: 50px;
-	/* max-height: 40px; */
-	/* max-width: 40px; */
-	margin: 5px;
+.colourSwatches {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Helvetica, sans-serif;
+  font-size: 0.9rem;
+  color: white;
+  text-shadow: 0 0 5px red, 0 0 10px red, 0 0 20px darkred, 0 0 30px darkred,
+    0 0 40px black;
+  /* text-shadow: ; */
+  box-sizing: border-box;
+  width: 50px;
+  height: 50px;
+  /* max-height: 40px; */
+  /* max-width: 40px; */
+  margin: 5px;
 }
-
 
 .wrapper {
-	display: grid;
-	height: 100%;
-	grid-template-columns: 100px 230px  minmax(500px, 1fr);
-	grid-template-rows: 30px minmax(500px, 1fr) 160px;
-	grid-template-areas:
-			"header header header"
-			"sidebar content content"
-			"colourP colourP options";
-	background-color: #fff;
-	color: #444;
+  display: grid;
+  height: 100%;
+  grid-template-columns: 100px 230px minmax(500px, 1fr);
+  grid-template-rows: 30px minmax(500px, 1fr) 160px;
+  grid-template-areas:
+    "header header header"
+    "sidebar content content"
+    "colourP colourP options";
+  background-color: #fff;
+  color: #444;
 }
 
 .box {
@@ -92,64 +88,64 @@ html, body {
 }
 
 .dropdown {
-	position: relative;
+  position: relative;
 }
 
 .link {
-	background: white;
-	text-decoration: none;
-	color: red;
-	font-family: inherit;
-	font-size: inherit;
-	cursor: pointer;
-	padding: 0;
+  background: white;
+  text-decoration: none;
+  color: red;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0;
 }
 
 .dropdown > .link:focus,
 .link:hover {
-	color: black;
+  color: black;
 }
 
 .link:hover {
-	color: black;
+  color: black;
 }
 .dropdown {
-	font-size: 1rem;
-	position: relative;
+  font-size: 1rem;
+  position: relative;
 }
 
 .dropdown-menu {
-	position: absolute;
-	left: 0;
-	top: calc(100% + 0.25rem);
-	background-color: white;
-	padding: 0.75rem;
-	border-radius: 0.25rem;
-	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 1);
-	opacity: 0;
-	pointer-events: none;
-	transform: translateY(-10px);
-	transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 0.25rem);
+  background-color: white;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 1);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
 }
 
 .dropdown > .link:focus + .dropdown-menu {
-	opacity: 1;
-	transform: translateY(0);
-	pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 .dropdown-menu.active {
-	opacity: 1;
+  opacity: 1;
 }
 
 .dropdown-item {
-	padding: 6px 10px;
-	color: black;
-	cursor: pointer;
-	display: block;
+  padding: 6px 10px;
+  color: black;
+  cursor: pointer;
+  display: block;
 }
 
 .dropdown-item:hover {
-		background-color: rgba(0, 0, 0, 0.144);
+  background-color: rgba(0, 0, 0, 0.144);
 }
 
 #freehandToolContainer {
